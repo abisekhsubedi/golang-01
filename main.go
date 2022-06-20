@@ -33,7 +33,6 @@ func main() {
 	app := fiber.New()
 
 	initDatabase()
-
 	setupRoute(app)
 
 	// listen to port 3000
