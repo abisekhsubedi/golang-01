@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber"
+	"github.com/abisekhsubedi/golang-01/database"
 )
 
 func setupRoute(app *fiber.App){
@@ -12,11 +13,18 @@ func setupRoute(app *fiber.App){
 	app.Delete(DeleteLead)
 }
 
+func initDatabase(){
+
+}
+
 func main() {
 	app := fiber.New()
+	initDatabase()
 	setupRoute(app)
 
 	// listen to port 3000
 	app.Listen(3000)
+
+	defer database.DBConn.Close()
 
 }
